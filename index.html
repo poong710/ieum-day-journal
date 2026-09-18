@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#173f39"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><title>이음 · 하루의 흔적</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div><small>나만의 비서 · 기록 시험판</small><h1>이음</h1></div><span class="badge">이 기기에 저장</span></header>
+<main>
+<section class="intro"><p class="eyebrow">하루의 흔적</p><h2>지금의 나를,<br>짧게 남겨요.</h2><p>무엇을 했는지, 무슨 생각이 들었는지.<br>기분 하나만 골라도 괜찮아요.</p></section>
+<nav aria-label="화면 선택"><button id="writeTab" aria-current="page">남기기</button><button id="historyTab">돌아보기</button><button id="manageTab">보관·관리</button></nav>
+<p id="status" role="status" aria-live="polite"></p>
+<section id="writePanel" aria-label="기록 남기기">
+<form id="entryForm"><h2 id="formTitle">지금 한 줄</h2><fieldset><legend>어떤 기분인가요?</legend><div class="moods" id="moods"></div></fieldset>
+<label for="situation">어떤 순간인가요?</label><select id="situation"><option>일상</option><option>운동 전</option><option>운동 후</option><option>이동</option><option>식사</option><option>소비</option><option>만남</option><option>하루 돌아보기</option></select>
+<label for="note">생각·감정·행동 <span class="muted">선택</span></label><textarea id="note" maxlength="2000" rows="4" placeholder="예: 산책을 다녀왔더니 마음이 한결 가벼워졌다."></textarea><p class="hint">말로 쓰려면 휴대폰 키보드의 음성 입력을 이용할 수 있어요. 이 화면 자체는 녹음하지 않아요.</p>
+<details><summary>지난 순간을 기록하거나 시각 고치기</summary><label for="eventTime">그 일이 있었던 시각</label><input id="eventTime" type="datetime-local" required><p class="hint">실제로 저장한 시각도 따로 보관해요. 빈 시간은 추측해서 채우지 않아요.</p></details>
+<div class="actions"><button type="submit" class="primary" id="saveButton">이 순간 저장</button><button type="button" id="cancelEdit" hidden>수정 취소</button></div></form>
+<p class="footnote">기록은 이 브라우저에만 보관돼요. 다른 기기와 자동으로 동기화되지 않아요.</p></section>
+<section id="historyPanel" hidden aria-label="기록 돌아보기"><div class="sectionHead"><h2>나의 시간선</h2><span id="entryCount"></span></div><label for="dayFilter">살펴볼 날짜</label><input type="date" id="dayFilter"><button id="allDays" class="linkButton">모든 날짜 보기</button><div id="entries"></div></section>
+<section id="managePanel" hidden aria-label="보관과 관리"><h2>내 기록 보관하기</h2><div class="notice"><strong>브라우저를 지우면 기록도 사라질 수 있어요.</strong><p>중요한 기록은 백업 파일을 따로 보관해 주세요. 시크릿 모드에서는 보존을 기대하지 마세요.</p></div><button id="exportButton" class="primary">백업 파일 내려받기</button><p class="hint">백업은 암호화되지 않은 JSON 파일이에요. 개인적인 내용을 포함하므로 안전한 위치에 보관해 주세요.</p><label for="importFile">백업 파일 복원</label><input id="importFile" type="file" accept="application/json,.json"><p class="hint">파일을 고른 뒤 미리 확인하고 복원해요. 현재 기록은 덮어쓰지 않으며, 같은 기록은 건너뛰어요.</p><div id="importReview" hidden><p id="importSummary"></p><button id="restoreButton">확인한 기록 복원</button><button id="cancelImport">취소</button></div><hr><h3>삭제한 기록</h3><p class="hint">삭제한 기록은 휴지통에서 복구할 수 있어요. 백업에도 휴지통 기록이 포함돼요.</p><div id="trash"></div><hr><h3>지금 되는 것</h3><p>직접 선택·입력한 기록의 저장, 수정, 삭제와 복구, 시간순 조회, 파일 백업과 복원.</p><p class="hint">Google Tasks 알림, 카드 내역, 위치, 운동 센서, AI 요약은 아직 이 화면에 연결되지 않았어요. 약 복용이나 운동 수행을 자동으로 판단하지 않아요. 저장 내용은 암호화되어 있지 않으며, 기기를 사용하는 다른 사람도 이 브라우저에서 볼 수 있어요.</p></section>
+</main><footer>오늘의 기록은, 내일의 나를 돕는 작은 단서.</footer><script src="core.js"></script><script src="app.js"></script></body></html>
